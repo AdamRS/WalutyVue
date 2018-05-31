@@ -1,20 +1,17 @@
 <template>
 <div>
-    <h1 @click="test">Waluty</h1>
-    <table class="table table-striped table-hover" >
-      <thead>
-        <tr>
-          <th>Lp. </th>
-          <th>Symbol</th>
-          <th>Waluta</th>
-          <th>Kurs</th>
-
-        </tr>
-      </thead>
-      <tbody>
-        <tr is="CurrencyName"  v-for="(currency, code, index) in currencyNames" :key="index" :currency="currency" :index="index" :code="code" :cos="currencyRates"></tr>
-      </tbody>
-    </table>
+  <h1>Waluty</h1>
+    <div class="container grid-xl">
+      <div class="columns">
+        <div class="col-1"> Lp.</div>
+        <div class="col-2"> Symbol</div>
+        <div class="col-4"> Waluta</div>
+        <div class="col-3"> Kurs</div>
+        <div class="col-2"> </div>
+      </div>
+      <CurrencyName  v-for="(currency, code, index) in currencyNames" :key="index" :currency="currency" :index="index" :code="code" :cRates="currencyRates">
+      </CurrencyName>
+    </div>
 </div>
 </template>
 
@@ -45,13 +42,6 @@ export default {
       .then(res => this.currencyRates = res.data.rates);
    
   },
-  methods: {
-    test() {
-      console.log(this.currencyRates["ALL"]);
-      
-
-    }
-  }
 }
 </script>
 
