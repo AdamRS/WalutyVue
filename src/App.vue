@@ -1,7 +1,9 @@
 <template>
 <div>
   <h1>Waluty</h1>
-    <div class="container grid-xl">
+
+
+    <div class="container">
       <div class="columns">
         <div class="col-1"> Lp.</div>
         <div class="col-2"> Symbol</div>
@@ -33,6 +35,7 @@ export default {
     return{
       currencyNames: [],
       currencyRates: [],
+      query : "",
     }
   },
   created() {
